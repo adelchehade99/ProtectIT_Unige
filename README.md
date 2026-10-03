@@ -11,18 +11,19 @@ It is designed for research and deployment in embedded or edge environments, whe
 ### [`preprocessing/`](./preprocessing/)
 Processes raw `.pcap` network traffic into fixed-length session representations.  
 Supports flexible handling of IP/MAC fields, ports, and UDP headers with parallelized processing.  
-➡️ See [`README.md`](./preprocessing/)
+➡️ See [`README.md`](./preprocessing/README.md)
 
 ### [`nas_optimization/`](./nas_optimization/)
 Performs hardware-constrained neural architecture search (NAS) to discover deep learning architectures optimized for low-resource devices.  
 Supports proxy/full training, mutation-based evolution, and performance-aware selection.  
-➡️ See [`README.md`](./nas_optimization/)
+➡️ See [`README.md`](./nas_optimization/README.md)
 
 ### 📁 Processed Datasets (optional)
 Preprocessed session-level datasets (`.idx3` / `.idx1`) used in our experiments  
 are available in the [**GitHub Releases**](https://github.com/SEAlab-unige/ProtectIT_Unige/releases).
 
 If you prefer to use your own `.pcap` traffic, use the [`preprocessing/`](./preprocessing/) module to generate compatible inputs.
+
 ---
 
 ## 🧠 Pipeline Overview
@@ -40,6 +41,7 @@ The goal is to discover deep learning models that:
 - Fit the constraints of **edge or embedded devices**, including **microcontrollers**
 - Require minimal compute, memory, and storage resources
 
+Experiments cover **ISCX VPN-nonVPN**, **USTC-TFC2016**, and **QUIC NetFlow**, with deployment on **STM32** microcontrollers. The pipeline is not tied to these: any `.pcap` capture can be preprocessed, and the hardware limits can be set to match any target device.
 ---
 
 ## 🚀 Quick Start
@@ -72,15 +74,23 @@ python B01_NAS.py
 ## 📄 Citation
 
 If you use this code, please cite:
-```bash
+
+```bibtex
 @article{chehade2026hardware,
   title={Hardware-Aware Neural Architecture Search for Encrypted Traffic Classification on Resource-Constrained Devices},
   author={Chehade, Adel and Ragusa, Edoardo and Gastaldo, Paolo and Zunino, Rodolfo},
   journal={IEEE Transactions on Network and Service Management},
+  volume={23},
   year={2026},
-  publisher={IEEE}
+  publisher={IEEE},
+  doi={10.1109/TNSM.2026.3666676}
 }
 ```
+
+📄 [Paper on IEEE Xplore](https://doi.org/10.1109/TNSM.2026.3666676)
+
+Follow-up work: [RepTC](https://github.com/SEAlab-unige/RepTC), which extends the search to the input representation itself, jointly optimizing architecture, session length, and header preprocessing.
+
 ---
 
 ## 📚 Requirements
@@ -91,3 +101,7 @@ Install required packages:
 ```bash
 pip install scapy numpy psutil tensorflow keras-flops scikit-learn
 ```
+
+---
+
+**Keywords:** encrypted traffic classification, network traffic analysis, hardware-aware neural architecture search, HW-NAS, TinyML, edge AI, IoT security, microcontroller deployment, STM32, pcap, TensorFlow, Keras.
