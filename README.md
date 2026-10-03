@@ -42,6 +42,7 @@ The goal is to discover deep learning models that:
 - Require minimal compute, memory, and storage resources
 
 Experiments cover **ISCX VPN-nonVPN**, **USTC-TFC2016**, and **QUIC NetFlow**, with deployment on **STM32** microcontrollers. The pipeline is not tied to these: any `.pcap` capture can be preprocessed, and the hardware limits can be set to match any target device.
+
 ---
 
 ## 🚀 Quick Start
